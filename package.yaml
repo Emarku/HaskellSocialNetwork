@@ -1,0 +1,61 @@
+name:                Haskell-Assignment
+version:             0.1.0.0
+github:              "githubuser/Haskell-Assignment"
+license:             BSD3
+author:              "Erblin Marku "
+maintainer:          "erblinmarku@gmail.com"
+copyright:           "2022 Erblin Marku"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/Haskell-Assignment#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- stm > 2
+- async > 2
+- containers
+- network >= 2.5.0.0
+
+library:
+  source-dirs: src
+
+executables:
+  Haskell-Assignment-exe:
+    main:                ServerSystem.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - ChatApp
+    dependencies:
+    - Haskell-Assignment
+    - stm > 2
+    - async > 2
+    - containers
+    - network
+
+tests:
+  Haskell-Assignment-test:
+    main:                ChatApp.hs
+    source-dirs:         src
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Haskell-Assignment
+    - stm > 2
+    - async > 2
+    - containers
+    - network
